@@ -1,0 +1,15 @@
+# Build and Release Folders
+
+
+# Project property files
+.settings/
+.flexProperties
+.FlexUnitSettings
+.project
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
