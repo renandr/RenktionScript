@@ -1,4 +1,4 @@
-package com.renandr.renk {
+package com.renandr.renk.starling {
 	import starling.core.Starling;
 	import org.osflash.signals.Signal;
 	import flash.geom.Rectangle;

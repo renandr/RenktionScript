@@ -1,6 +1,7 @@
 package com.renandr.youtubenizer {
-	import com.renandr.renk.StarlingMain;
 	import feathers.themes.AeonDesktopTheme;
+
+	import com.renandr.renk.starling.StarlingMain;
 
 	public class YouTubenizer extends StarlingMain {
 		private static var _ME : YouTubenizer;

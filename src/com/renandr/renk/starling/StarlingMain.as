@@ -1,4 +1,4 @@
-package com.renandr.renk {
+package com.renandr.renk.starling {
 	import flash.geom.Rectangle;
 	import starling.core.Starling;
 	import starling.display.Sprite;
