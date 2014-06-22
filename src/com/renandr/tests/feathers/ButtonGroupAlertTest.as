@@ -41,7 +41,7 @@ package com.renandr.tests.feathers {
 			group.addEventListener(Event.TRIGGERED, handleButtonClick);
 			group.dataProvider = buttonList;
 			group.gap = 10;
-			this.addChild(group);
+			addChild(group);
 			group.validate();
 		}
 
