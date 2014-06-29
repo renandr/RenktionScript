@@ -1,8 +1,8 @@
 package com.renandr.tests {
-	import com.renandr.tests.feathers.ListTest;
 	import com.renandr.renk.starling.StarlingContainer;
 	import com.renandr.tests.feathers.ButtonAlertTest;
 	import com.renandr.tests.feathers.ButtonGroupAlertTest;
+	import com.renandr.tests.feathers.listTest.ListTest;
 
 	public class TestMain extends StarlingContainer {
 		
