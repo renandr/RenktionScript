@@ -1,8 +1,9 @@
 package com.renandr.renk.starling {
-	import flash.geom.Rectangle;
 	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.events.Event;
+
+	import flash.geom.Rectangle;
 
 
 	public class StarlingMain extends Sprite {

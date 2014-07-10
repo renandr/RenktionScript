@@ -1,11 +1,13 @@
 package com.renandr.tests.feathers.listTest {
-	import feathers.events.FeathersEventType;
+	import feathers.controls.Label;
 	import feathers.controls.List;
+	import feathers.controls.renderers.BaseDefaultItemRenderer;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
 	import feathers.data.ListCollection;
 	import feathers.themes.AeonDesktopTheme;
 
+	import starling.display.DisplayObject;
 	import starling.display.Quad;
 	import starling.events.Event;
 
@@ -37,8 +39,7 @@ package com.renandr.tests.feathers.listTest {
 			bgResizeFront.x = 2;
 			bgResizeFront.y = 2;
 
-			var receiptClass : String = new ReceiptData();
-			var receiptData : Object = JSON.parse(receiptClass);
+			var receiptData : Object = JSON.parse(new ReceiptData());
 			categories = receiptData["receipt"]["categories"];
 			products = receiptData["receipt"]["products"];
 			
@@ -50,6 +51,9 @@ package com.renandr.tests.feathers.listTest {
 			addChild(categoryList);
 			
 			productList = new List();
+			//var layout:VerticalLayout = new VerticalLayout();
+			//layout.horizontalAlign = HorizontalAlign.LEFT;
+	        //productList.layout = layout;
 			productList.itemRendererFactory = renderProductList;
 			addChild(productList);
 			
@@ -78,6 +82,7 @@ package com.renandr.tests.feathers.listTest {
 		private function renderCategoryList() : IListItemRenderer {
 			var renderer : DefaultListItemRenderer = new DefaultListItemRenderer();
 			renderer.labelField = "name";
+			
 			return renderer;
 		};
 		

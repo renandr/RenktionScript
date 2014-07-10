@@ -1,11 +1,12 @@
 package com.renandr.renk.starling {
 	import starling.core.Starling;
+
 	import org.osflash.signals.Signal;
-	import flash.geom.Rectangle;
+
+	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import flash.display.Sprite;
 	
 	public class StarlingContainer extends Sprite {
 		
