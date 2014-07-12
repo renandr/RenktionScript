@@ -1,4 +1,4 @@
-package com.renandr.tests.feathers.listTest {
+package com.renandr.tests.feathers.listTest2 {
 	import feathers.controls.List;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
@@ -10,7 +10,7 @@ package com.renandr.tests.feathers.listTest {
 
 	import com.renandr.renk.starling.StarlingMain;
 
-	public class ListTest extends StarlingMain {
+	public class ListTest2 extends StarlingMain {
 		
 		[Embed(source='receipt.json', mimeType='application/octet-stream')]
 		private static const ReceiptData : Class;
@@ -24,7 +24,7 @@ package com.renandr.tests.feathers.listTest {
 		private var categoryList : List;
 		private var productList : List;	
 		
-		public function ListTest() {
+		public function ListTest2() {
 			super();
 		}
 
@@ -51,7 +51,7 @@ package com.renandr.tests.feathers.listTest {
 			//var layout:VerticalLayout = new VerticalLayout();
 			//layout.horizontalAlign = HorizontalAlign.LEFT;
 	        //productList.layout = layout;
-			productList.itemRendererFactory = renderProductList;
+			productList.itemRendererType= ProductListItemRenderer;
 			addChild(productList);
 			
 			var selectedIndices : Vector.<int> = new <int>[];
@@ -79,15 +79,9 @@ package com.renandr.tests.feathers.listTest {
 		private function renderCategoryList() : IListItemRenderer {
 			var renderer : DefaultListItemRenderer = new DefaultListItemRenderer();
 			renderer.labelField = "name";
-			
 			return renderer;
 		};
 		
-		private function renderProductList() : IListItemRenderer {
-			var renderer : DefaultListItemRenderer = new DefaultListItemRenderer();
-			renderer.labelField = "name";
-			return renderer;
-		};
 		private function handleCategoryChange(event : Event) : void {
 			trace("change");
 			var filteredProducts : Array = [];
