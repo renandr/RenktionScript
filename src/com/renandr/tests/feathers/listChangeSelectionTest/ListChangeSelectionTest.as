@@ -1,4 +1,5 @@
 package com.renandr.tests.feathers.listChangeSelectionTest {
+	import feathers.controls.Label;
 	import feathers.controls.List;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
@@ -25,7 +26,9 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 		
 		private var categoryList : List;
 		private var productList : List;
-		private var currentProduct : *;
+		private var descriptionLabel : Label;
+		
+		private var currentProduct : Object;
 		
 		public function ListChangeSelectionTest() {
 			super();
@@ -61,6 +64,10 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 			var selectedIndices : Vector.<int> = new <int>[];
 			for (var i : int = 0; i < categories.length; i++)selectedIndices.push(i);
 			categoryList.selectedIndices = selectedIndices;
+			
+			descriptionLabel = addChild(new Label()) as Label;
+			descriptionLabel.textRendererFactory = ProductItemFactory.ME.renderDescriptionLabel;
+			descriptionLabel.text = "No Items selected";
 		}
 
 		override protected function updatePositions() : void {
@@ -78,6 +85,11 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 			productList.y = 10;
 			productList.height = resolution.height-20;
 			productList.width = 150;
+			
+			descriptionLabel.x = productList.x + productList.width + 5;
+			descriptionLabel.y = 10;
+			descriptionLabel.height = resolution.height-20;
+			descriptionLabel.width = resolution.width - descriptionLabel.x - 10;
 		}
 
 		private function renderCategoryList() : IListItemRenderer {
@@ -99,7 +111,7 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 		public function showProduct(product:Object):void{
 			if(currentProduct == product)return;
 			currentProduct = product;
-			trace(product.name);
+			descriptionLabel.text = currentProduct.description;
 		}
 		static public function get ME() : ListChangeSelectionTest {
 			return _ME;

@@ -7,18 +7,42 @@
 		], 
 		
 		"products":[
-			{"name":"Coca-Cola", "category":"0"}, 
-			{"name":"Toothpaste", "category":"1"}, 
-			{"name":"Fancy Jacket", "category":"2"}, 
-			{"name":"Hairy Shampoo", "category":"1"}, 
-			{"name":"Just Pants", "category":"2"}, 
-			{"name":"Rolls Rice", "category":"0"}, 
-			{"name":"Lots a Meat", "category":"0"}, 
-			{"name":"Toilet Paper Donkey Hole", "category":"1"}, 
-			{"name":"Peperoni Pizza", "category":"0"}, 
-			{"name":"X-Cheese", "category":"0"}, 
-			{"name":"Grandma Socks", "category":"2"}, 
-			{"name":"Tasty Bread", "category":"0"}
+			{"name":"Coca-Cola", "category":"0", "description":
+				"A delicious drink taylored for the best of sugary pleasures.\nIt resounds to the experiences we have as a kid and it's someone's birthday and you can drink as much as you want, and then you burp a lot. And your parents tell you to stop, but you can't just stop because burping is so fun."
+			}, 
+			{"name":"Toothpaste", "category":"1", "description":
+				"Using a toothpaste every time you brush your teeth may not be recommended by most doctors, but it sure is disgusting to brush one's teeth without toothpaste, because all the food stuck n your teeth will come out and they taste bad and will make you want to puke, making you never want to brush your teeth again. So enjoy your toothpasted toothbrushing :)"
+			}, 
+			{"name":"Fancy Jacket", "category":"2", "description":
+				"A Jacked the size S, because we don't sell jackets with other sizes besides S. Only jerks use sizes bigger than S. These people are a waste of space and should be put somewhere. Not killed, no bloodshed I don't like violence. But just put them where they woulnd't bother anyone."
+			}, 
+			{"name":"Hairy Shampoo", "category":"1", "description":
+				"A Shampoo that doesn't fall of the thing when you can't see anything and tries to guess where is the thing that you put it."
+			}, 
+			{"name":"Just Pants", "category":"2", "description":
+				"Pants that are the length of your legs, no matter how much you grow or shrink."
+			}, 
+			{"name":"Rolls Rice", "category":"0", "description":
+				"Rice with some actual taste. I know it's impossible but we made it!"
+			}, 
+			{"name":"Lots a Meat", "category":"0", "description":
+				"Meat that doesn't get stuck on your teeth, so you can brush them and not want to puke with that 2 weeks old piece of meat that got stuck on our teeth"
+			}, 
+			{"name":"Toilet Paper Donkey Hole", "category":"1", "description":
+				"Yep, just toilet paper. What else did you want?"
+			}, 
+			{"name":"Peperoni Pizza", "category":"0", "description":
+				"Pizza that tastes good and make you want to eat more and more and oh boy i sure am hungry!"
+			}, 
+			{"name":"X-Cheese", "category":"0", "description":
+				"Mutant cheese, will make your taste buds explode and regenerate right after."
+			}, 
+			{"name":"Grandma Socks", "category":"2", "description":
+				"Black socks specifically tailored to wear with shorts. Because apparently black sock with shorts is not the most ridiculous thing ever here in Germany...."
+			}, 
+			{"name":"Tasty Bread", "category":"0", "description":
+				"Bread that you can chew."
+			}
 		]
 	}
 }

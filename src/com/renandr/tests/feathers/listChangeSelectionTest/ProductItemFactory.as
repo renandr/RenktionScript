@@ -1,11 +1,15 @@
 package com.renandr.tests.feathers.listChangeSelectionTest {
-	import flash.utils.getTimer;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
+	import feathers.controls.text.TextFieldTextRenderer;
+	import feathers.core.ITextRenderer;
 
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+
+	import flash.text.TextFormat;
+	import flash.utils.getTimer;
 
 	public class ProductItemFactory {
 		
@@ -15,6 +19,10 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 		
 		private var lastClickTime : int;
 
+		static public function get ME() : ProductItemFactory {
+			return _ME;
+		}
+		
 		public function ProductItemFactory() {
 			if (_ME) throw (new Error(""));
 			_ME = this;
@@ -43,8 +51,12 @@ package com.renandr.tests.feathers.listChangeSelectionTest {
 			}
 		}
 
-		static public function get ME() : ProductItemFactory {
-			return _ME;
-		}
+		public function  renderDescriptionLabel():ITextRenderer {
+			var textRenderer : TextFieldTextRenderer = new TextFieldTextRenderer();
+			textRenderer.wordWrap = true;
+			textRenderer.background = true;
+			textRenderer.backgroundColor = 0xCEFEDE;
+            return textRenderer;
+         }
 	}
 }
