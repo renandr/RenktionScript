@@ -18,6 +18,7 @@ package com.renandr.renk.starling.feathers {
 		
 
 		public function BasicListItemRenderer() {
+			super();
 		}
 
 		override protected function initialize() : void {
