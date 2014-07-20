@@ -1,4 +1,4 @@
-package com.renandr.tests.feathers.listTest {
+package com.renandr.tests.feathers.listChangeTest {
 	import feathers.controls.List;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
@@ -48,7 +48,7 @@ package com.renandr.tests.feathers.listTest {
 			addChild(categoryList);
 			
 			productList = new List();
-			productList.itemRendererFactory = ItemFactory.ME.product;
+			productList.itemRendererFactory = ItemFactory.ME.renderSimpleProduct;
 			addChild(productList);
 			
 			var selectedIndices : Vector.<int> = new <int>[];
