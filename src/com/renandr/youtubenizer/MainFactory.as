@@ -1,58 +1,67 @@
-package com.renandr.tests.feathers.listChangeSelectionTest {
+package com.renandr.youtubenizer {
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
+	import feathers.controls.text.StageTextTextEditor;
 	import feathers.controls.text.TextFieldTextRenderer;
+	import feathers.core.ITextEditor;
 	import feathers.core.ITextRenderer;
 
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 
-	import flash.text.TextFormat;
 	import flash.utils.getTimer;
 
-	public class ProductItemFactory {
-		private static var _ME : ProductItemFactory = new ProductItemFactory();
+	public class MainFactory {
+		private static var _ME : MainFactory = new MainFactory();
 		private static const DOUBLE_TAP_TIME : int = 300;
 		private var lastClickTime : int;
 
-		static public function get ME() : ProductItemFactory {
+		static public function get ME() : MainFactory {
 			return _ME;
 		}
 
-		public function ProductItemFactory() {
+		public function MainFactory() {
 			if (_ME) throw (new Error(""));
 			_ME = this;
 		}
+		
+		public function renderSearchInput():ITextEditor{
+		    var editor:StageTextTextEditor = new StageTextTextEditor();
+		    editor.fontFamily = "Arial, Helvetica";
+		    editor.fontSize = 22;
+		    editor.color = 0x333333;
+		    return editor;
+		}
 
-		public function renderInteractiveProduct() : IListItemRenderer {
+		public function renderVideoItem() : IListItemRenderer {
 			var renderer : DefaultListItemRenderer = new DefaultListItemRenderer();
 			renderer.height = 40;
-			renderer.labelFactory = renderLabel;
-			renderer.labelFunction = makeProductLabel;
-			renderer.addEventListener(TouchEvent.TOUCH, handleProductTouch);
+			renderer.labelFactory = renderVideoItemLabel;
+			renderer.labelFunction = drawVideoItemLabel;
+			renderer.addEventListener(TouchEvent.TOUCH, handleVideoItemTouch);
 			return renderer;
 		}
 
-		private function renderLabel() : ITextRenderer {
+		private function renderVideoItemLabel() : ITextRenderer {
 			var label : TextFieldTextRenderer = new TextFieldTextRenderer();
 			label.isHTML = true;
 			//label.border = true;
 			return label;
 		}
 
-		private function makeProductLabel(product : Object) : String {
+		private function drawVideoItemLabel(product : Object) : String {
 			return "<b>Name:</b><br/>" + product["name"];
 		}
 
-		private function handleProductTouch(event : TouchEvent) : void {
-			var productRenderer : DefaultListItemRenderer = event.currentTarget as DefaultListItemRenderer;
-			var touches : Vector.<Touch> = event.getTouches(productRenderer);
+		private function handleVideoItemTouch(event : TouchEvent) : void {
+			var videoItem : DefaultListItemRenderer = event.currentTarget as DefaultListItemRenderer;
+			var touches : Vector.<Touch> = event.getTouches(videoItem);
 			for each (var touch : Touch in touches) {
 				switch(touch.phase) {
 					case TouchPhase.ENDED:
 						if (lastClickTime > 0 && (getTimer() - lastClickTime) < DOUBLE_TAP_TIME) {
-							ListChangeSelectionTest.ME.showProduct(productRenderer.data);
+							YouTubenizer.ME.showVideo(videoItem.data);
 							lastClickTime = 0;
 						} else lastClickTime = getTimer();
 						break;
