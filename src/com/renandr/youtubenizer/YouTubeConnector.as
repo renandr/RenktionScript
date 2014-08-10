@@ -9,17 +9,24 @@ package com.renandr.youtubenizer {
 	public class YouTubeConnector {
 		private static var _ME : YouTubeConnector = new YouTubeConnector();
 		private var loader:URLLoader;
+		private var videoList : Vector.<VideoVO>;
+		private var currentTotalResults : int = 0;
+		
 		
 		public function searchPlaylistFrom(channelId : String):void{
 			var string : String = 'https://www.googleapis.com/youtube/v3/search?';
-			string += 'fields=nextPageToken,items(id/videoId,snippet/publishedAt,snippet/title)';
-			string += '&part=snippet';
+			string += 'key=AIzaSyAHzXnEmUfy-1wpLxp4fymFbcF0y1mCNQw';
 			string += '&type=videos';
 			string += '&channelId='+channelId;
-			string += '&key=AIzaSyAHzXnEmUfy-1wpLxp4fymFbcF0y1mCNQw';
+			string += '&part=snippet';
+			string += '&fields=pageInfo/totalResults,nextPageToken,items(id/videoId,snippet/publishedAt,snippet/title)';
 			
+			videoList = null;
 			loader = new URLLoader();
-			configureListeners(loader);
+            loader.addEventListener(Event.COMPLETE, handleComplete);
+            loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, handleError);
+            loader.addEventListener(HTTPStatusEvent.HTTP_STATUS, handleError);
+            loader.addEventListener(IOErrorEvent.IO_ERROR, handleError);
 
             var request:URLRequest = new URLRequest(string);
             try {
@@ -29,26 +36,28 @@ package com.renandr.youtubenizer {
             }
         }
 
-        private function configureListeners(dispatcher:IEventDispatcher):void {
-            dispatcher.addEventListener(Event.COMPLETE, handleComplete);
-
-            dispatcher.addEventListener(SecurityErrorEvent.SECURITY_ERROR, handleError);
-            dispatcher.addEventListener(HTTPStatusEvent.HTTP_STATUS, handleError);
-            dispatcher.addEventListener(IOErrorEvent.IO_ERROR, handleError);
-        }
 
         private function handleComplete(event:Event):void {
-            var loader:URLLoader = URLLoader(event.target);
             trace("completeHandler: " + loader.data);
+			var paramsObj : Object = JSON.parse(loader.data);
+			if(!videoList){
+				videoList = new <VideoVO>[];
+				currentTotalResults = paramsObj['totalResults'];
+			}
+			var paramList : Array = paramsObj['items'];
+			for each (var videoObj : Object in paramList) {
+				videoList.push(new VideoVO(videoObj));
+			}
+			//TODO call next pages
         }
 
         private function handleError(event:Event):void {
 			if(event is SecurityErrorEvent){
-				trace("securityErrorHandler: " + event);
+				//trace("securityErrorHandler: " + event);
 			}else if(event is HTTPStatusEvent){
-				trace("httpStatusHandler: " + event);
+				//trace("httpStatusHandler: " + event);
 			}else if(event is IOErrorEvent){
-				trace("ioErrorHandler: " + event);
+				//trace("ioErrorHandler: " + event);
 			}
             
         }
