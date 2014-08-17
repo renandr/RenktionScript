@@ -30,8 +30,6 @@ package com.renandr.youtubenizer {
 			searchButton.validate();
 			searchButton.addEventListener(Event.TRIGGERED, handleSearchClick);
 			searchButton.height = searchInput.height;
-			
-			searchInput.text = 'UCBJycsmduvYEL83R_U4JriQ';
 		}
 
 		override protected function updatePositions():void{

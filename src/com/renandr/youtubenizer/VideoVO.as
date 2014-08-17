@@ -5,7 +5,7 @@ package com.renandr.youtubenizer {
 		private var title : String;
 
 		public function VideoVO(obj : Object) {
-			videoId = obj["id"]["videoId"];
+			///videoId = obj["id"]["videoId"];
 			publishDate = obj["snippet"]["publishedAt"];
 			title = obj["snippet"]["title"];
 		}
